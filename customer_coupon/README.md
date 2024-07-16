@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-This project aims to analyze factors influencing the acceptance of different types of coupons (restaurants, coffee houses, bars, etc.) by drivers and various contextual attributes such as weather, time, and passenger type.  
+This project aims to analyze factors influencing the acceptance of different types of coupons (restaurants, coffee houses, bars, etc.) by drivers and various contextual attributes such as weather, time, and passenger type.
 
 Please use the following notebook to go through the analysis: https://github.com/dashao/mlai/blob/main/customer_coupon/coupon_analysis.ipynb
 
