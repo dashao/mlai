@@ -3,6 +3,15 @@
 **Daria Oskomova**
 
 ## Executive summary
+The purpose of this analysis was to examine how various urbanization characteristics and local climate factors contribute to the Urban Heat Island (UHI) effect across different cities. The data was analyzed using several machine learning models, including RandomForest, Support Vector Classifier (SVC), and K-Nearest Neighbors (KNN), to predict the occurrence of UHI.
+
+**Data Preprocessing** involved handling missing values, encoding categorical data, and standardizing features. After preparing the data, we used **GridSearchCV** to tune the hyperparameters of the models to ensure the best possible performance. Cross-validation was employed to evaluate model performance, ensuring that each model could generalize well to unseen data.
+
+Among the models tested, **RandomForest** provided useful insights into feature importance, highlighting which factors contributed most significantly to predicting the UHI effect. The results showed that factors such as **city characteristics**, **vegetation cover**, **temperature metrics**, **wind speed**, and **precipitation** play key roles in influencing the UHI effect.
+
+To further enhance interpretability, one of the decision trees from the RandomForest was visualized using **Graphviz**, which provided a step-by-step breakdown of how the model made predictions based on specific features. This helped identify the key factors and interactions that influence UHI.
+
+Overall, the analysis provided a comprehensive understanding of how urbanization and local climate characteristics contribute to the UHI effect. The findings can be used by urban planners and policymakers to design strategies to mitigate UHI, such as increasing vegetation cover, improving urban design, and optimizing land use.
 
 ## Rationale
 Urban Heat Islands (UHIs) are areas within urban environments that experience significantly higher temperatures than their surrounding rural areas. Figuring out what causes UHIs is important because it helps to address a range of interconnected challenges — public health, energy efficiency, environmental sustainability, etc.
@@ -42,28 +51,47 @@ How urbanization characteristics and specific local climate factors (such as veg
 ## Results
 Urbanization characteristics and specific local climate factors contribute significantly to the Urban Heat Island (UHI) effect in different cities:.
 
-1. **City-Level Influence**: The `city` feature is the most important factor, indicating that UHI effects vary significantly by city. Urban areas have unique characteristics like population density, building materials, and infrastructure that affect heat retention and distribution.
+- Vegetation matters most. Areas with low greenery, measured by avg_ndvi, are much more likely to experience UHI. Trees and plants play a huge role in cooling urban areas.
+- Urban development. High-density development (like big buildings and paved areas) is strongly linked to UHI. Open spaces with more grass and vegetation help reduce these effects.
+- Hot surfaces. Land surface temperature (avg_lst_c) is a key indicator of how hot an area gets, especially in urban zones.
+- Day length and weather. Longer days and calm weather (low wind speeds) can make UHI worse since there’s less opportunity for heat to dissipate.
+- Forest cover. Forested areas, especially evergreen trees, are very effective at keeping temperatures lower.
+- Features like rainfall, population density, and certain types of land cover (like farmland) don’t play as big of a role but still provide some context.
 
-2. **Local Climate Factors**: Features such as `avg_lst_c` (Average Land Surface Temperature), `evergreen_forest_pct`, `day_length_sec`, and `max_air_temp_c` are highly influential in determining UHI. High land surface temperatures, reduced vegetation cover, and increased solar radiation exposure all contribute to elevated heat levels in urban areas.
-
-3. **Vegetation and Land Cover**: The percentage of evergreen and deciduous forest cover, along with other vegetation types (e.g., `shrub_scrub_pct`), plays a crucial role in mitigating UHI effects. Areas with more vegetation tend to have lower UHI effects due to evapotranspiration and shade provided by plants.
-
-4. **Wind and Atmospheric Conditions**: Factors like `wind_speed_kmh`, `wind_dir_degrees`, and `atm_pressure_hpa` also influence UHI intensity. Wind can disperse heat, while atmospheric pressure can affect local weather patterns, influencing temperature distribution.
-
-5. **Built Environment**: Developed land features, such as `developed_open_space_pct` and `percent_impervious`, are also significant, reflecting how the built environment (e.g., buildings, roads) retains and radiates heat, exacerbating UHI.
-
-In summary, urban heat islands are influenced by a combination of urban characteristics (e.g., building density, land use) and local climate factors (e.g., vegetation cover, temperature, wind). The presence of vegetation, local climate conditions, and city-specific infrastructure all contribute to how heat is retained and distributed within urban areas.
+The findings emphasize the interplay of vegetation, urbanization, and climate in driving UHI effects. Urban planners and policymakers should focus on increasing vegetation, reducing impervious surfaces, and adopting sustainable designs to mitigate UHI, improving urban resilience to climate change.
 
 
-#### Next steps
-What suggestions do you have for next steps?
+## Next steps
+1. **Model Deployment**:
+   - Deploy the best-performing model (e.g., RandomForest) as a web service using frameworks like **Flask** or **FastAPI**. This will allow users to input relevant features and predict the likelihood of UHI occurrence in real-time.
 
-#### Outline of project
+2. **Model Monitoring and Maintenance**:
+   - Implement a monitoring system to track the model's performance over time. Metrics like **accuracy**, **precision**, and **recall** should be tracked to identify any drift in model performance. Tools such as **MLflow** or **Prometheus** can be used for this purpose.
+
+3. **Data Collection and Updating**:
+   - Regularly update the dataset with new data to ensure the model remains accurate and relevant. New data will help the model adapt to changes in urbanization patterns, climate, and other contributing factors.
+
+4. **Feature Engineering**:
+   - Explore additional features that could improve the model, such as **building material types**, **surface albedo**, or **proximity to water bodies**. This may enhance the model's ability to accurately predict UHI.
+
+5. **Explainability and User Interface**:
+   - Develop an interactive dashboard using tools like **Dash** or **Tableau** to provide stakeholders with an easy-to-understand visual representation of the model's predictions and feature importances.
+
+6. **Integration with Urban Planning Tools**:
+   - Collaborate with urban planners to integrate the model with tools used in city planning to support decision-making related to green spaces, building density, and other urban design features that can mitigate UHI.
+
+7. **Further Model Evaluation**:
+   - Consider additional evaluation metrics like **ROC-AUC** or **PR-AUC**, particularly if the dataset is imbalanced. These metrics provide a more nuanced understanding of model performance beyond accuracy.
+
+8. **Testing in Real-World Scenarios**:
+   - Conduct pilot projects in collaboration with city authorities to apply the model's predictions in real-world scenarios. This could help validate the model's utility and gather insights for further improvement.
+
+## Outline of project
 
 - [Data Preparation](https://github.com/dashao/mlai/blob/main/Urban_Heat_Islands/1_uhi_data_preparation.ipynb)
 - [Data Exploration](https://github.com/dashao/mlai/blob/main/Urban_Heat_Islands/2_uhi_data_exploration.ipynb)
 - [Modeling](https://github.com/dashao/mlai/blob/main/Urban_Heat_Islands/3_uhi_modeling.ipynb)
 
 
-##### Contact and Further Information
+### Contact and Further Information
 [Email](mailto:oskomova@gmail.com)
