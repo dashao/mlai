@@ -3,15 +3,7 @@
 **Daria Oskomova**
 
 ## Executive summary
-The purpose of this analysis was to examine how various urbanization characteristics and local climate factors contribute to the Urban Heat Island (UHI) effect across different cities. The data was analyzed using several machine learning models, including RandomForest, Support Vector Classifier (SVC), and K-Nearest Neighbors (KNN), to predict the occurrence of UHI.
 
-**Data Preprocessing** involved handling missing values, encoding categorical data, and standardizing features. After preparing the data, we used **GridSearchCV** to tune the hyperparameters of the models to ensure the best possible performance. Cross-validation was employed to evaluate model performance, ensuring that each model could generalize well to unseen data.
-
-Among the models tested, **RandomForest** provided useful insights into feature importance, highlighting which factors contributed most significantly to predicting the UHI effect. The results showed that factors such as **city characteristics**, **vegetation cover**, **temperature metrics**, **wind speed**, and **precipitation** play key roles in influencing the UHI effect.
-
-To further enhance interpretability, one of the decision trees from the RandomForest was visualized using **Graphviz**, which provided a step-by-step breakdown of how the model made predictions based on specific features. This helped identify the key factors and interactions that influence UHI.
-
-Overall, the analysis provided a comprehensive understanding of how urbanization and local climate characteristics contribute to the UHI effect. The findings can be used by urban planners and policymakers to design strategies to mitigate UHI, such as increasing vegetation cover, improving urban design, and optimizing land use.
 
 ## Rationale
 Urban Heat Islands (UHIs) are areas within urban environments that experience significantly higher temperatures than their surrounding rural areas. Figuring out what causes UHIs is important because it helps to address a range of interconnected challenges — public health, energy efficiency, environmental sustainability, etc.
